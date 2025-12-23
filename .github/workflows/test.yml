@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create entity
-        uses: port-labs/port-github-action@c6b6f19
+        uses: port-labs/port-github-action@c6b6f19dcdcb091be6ed788f9bc3b84f69620643
         with:
           clientId: ${{ secrets.PORT_CLIENT_ID }}
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
