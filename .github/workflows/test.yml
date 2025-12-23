@@ -1,0 +1,28 @@
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        required: false
+        description: "Run ID"
+        type: string
+      org_id:
+        description: "ID of the organization to create the support user for"
+        required: true
+        type: string
+
+jobs:
+  upsert:
+    runs-on: ubuntu-latest
+    env:
+      API_URL: https://api.getport.io/v1
+    steps:
+      - name: Create entity
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          blueprint: 'test'
+          identifier: '${{ inputs.run_id }}-entity'
+          runId: ${{ inputs.run_id }}
