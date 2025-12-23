@@ -12,7 +12,7 @@ jobs:
   upsert:
     runs-on: ubuntu-latest
     env:
-      API_URL: https://api.getport.io/v1
+      API_URL: https://api.getport.io/v1.7.7
     steps:
       - name: Create entity
         uses: port-labs/port-github-action@v1
